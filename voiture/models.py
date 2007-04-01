@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
@@ -22,3 +23,25 @@ class Voiture(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('voiture:detail', kwargs={'pk': self.pk})
+
+
+class Reviews(models.Model):
+	"""Model definition for Reviews."""
+
+	# TODO: Define fields here
+	voiture =models.ForeignKey(Voiture, on_delete=models.CASCADE)
+	auteur =models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+	reviews =models.TextField()
+	created_at=models.DateTimeField(auto_now_add=True)
+	updated_at=models.DateTimeField(auto_now=True)
+
+
+	class Meta:
+		"""Meta definition for Reviews."""
+
+		verbose_name = 'review'
+		verbose_name_plural = 'Reviews'
+
+	def __str__(self):
+		"""Unicode representation of Reviews."""
+		return "created by {} at {}".format(self.auteur, self.created_at)

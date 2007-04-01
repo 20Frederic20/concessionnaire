@@ -23,20 +23,23 @@ class MarqueListView(ListView):
 	context_object_name = 'marques'
 
 
-class MarqueCreateView(CreateView):
+class MarqueCreateView(PermissionRequiredMixin, CreateView):
+	permission_required = 'marque.add_marque'
 	model = Marque
 	template_name = "Marque/create.html"
 	form_class = MarqueForm
 	success_url = reverse_lazy('marque:list')
 
 
-class MarqueUpdateView(UpdateView):
+class MarqueUpdateView(PermissionRequiredMixin, UpdateView):
+	permission_required = 'marque.change_marque'
 	model = Marque
 	template_name = "Marque/create.html"
 	form_class = MarqueForm
 	success_url = reverse_lazy('marque:list')
 
 
-class MarqueDeleteView(DeleteView):
+class MarqueDeleteView(PermissionRequiredMixin, DeleteView):
+	permission_required = 'marque.delete_marque'
 	model = Marque
 	success_url = reverse_lazy('marque:list')

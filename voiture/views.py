@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Marque, Voiture
+from .models import Marque, Reviews, Voiture
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from .forms import VoitureForm
 from django.urls import reverse_lazy
@@ -66,7 +66,8 @@ class VoitureDetail(DetailView):
 
     def get(self, request, *args, **kwargs):
         voiture = Voiture.objects.get(pk=self.kwargs['pk'])
-        return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture})
+        reviews = Reviews.objects.filter(voiture=self.kwargs['pk'])
+        return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture, 'reviews': reviews})
         
 
 class VoitureAdd(PermissionRequiredMixin, CreateView):	

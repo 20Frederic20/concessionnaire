@@ -10,10 +10,12 @@ class VoitureForm(forms.ModelForm):
 		fields = '__all__'
 
 		widgets = {
-		    'name': forms.TextInput(attrs={
-		        'class': 'form-control',
-		        'placeholder': 'lorem ipsum',
-		    }),
+		    'name': forms.TextInput(
+				attrs={
+					'class': 'form-control',
+					'placeholder': 'lorem ipsum',
+				}
+			),
 
 		    'price': forms.NumberInput(
 		    	attrs={

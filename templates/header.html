@@ -43,7 +43,7 @@
                 <li class="list-unstyled"><a class="text-decoration-none" href="{% url 'utilisateurs:dashboard' %}"><i class="bi bi-person-fill"></i>{{user.username}}</a></li> &nbsp;&nbsp;
                 <li class="list-unstyled"><a class="text-decoration-none" href="{% url 'utilisateurs:logout' %}">Deconnexion</a></li>
                 {% else %}
-                <li class="list-unstyled"><a class="text-decoration-none" href="{% url 'utilisateurs:login' %}">Se connecter</a></li>&nbsp;&nbsp; {% endif %}
+                <li class="list-unstyled"><a class="text-decoration-none" href="{% url 'utilisateurs:login' %}">Se connecter</a></li>{% endif %}
             </div>
           </div>
         </div>

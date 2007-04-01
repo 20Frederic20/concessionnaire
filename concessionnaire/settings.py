@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'voiture',
     'utilisateurs',
-    #'debug_toolbar',
+    'debug_toolbar',
     'marque',
+    'reviews',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #"debug_toolbar.middleware.DebugToolbarMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 # Cette partie est utilisé pour montrer les differentes adresses ip sur lequel votre site démarre. C'est donc sur ces adresses que s'affichera le debug_toolbar

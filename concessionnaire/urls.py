@@ -26,7 +26,8 @@ urlpatterns = [
     path('concession/', voiture_views.ConcessionView.as_view(), name='concession'),
     path('voiture/', include('voiture.urls', namespace='voiture')),
     path('marque/', include('marque.urls', namespace='marque')),
-    #path('__debug__/', include('debug_toolbar.urls')),
+    path('reviews/', include('reviews.urls', namespace='reviews')),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('utilisateurs/', include('utilisateurs.urls', namespace='utilisateurs')),
 ] 
 

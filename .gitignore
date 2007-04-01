@@ -8,3 +8,4 @@ concessionnaire/__pycache__/ marque/__pycache__/ utilisateurs/__pycache__/ voitu
 marque/migrations utilisateurs/migrations voiture/migrations
 .env
 .vscode
+AdminLTE-master

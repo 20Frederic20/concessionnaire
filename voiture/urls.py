@@ -14,5 +14,5 @@ urlpatterns = [
 	path('search/', views.VoitureSearchView.as_view(), name='search'),
 	path('update/<int:pk>/', views.VoitureUpdate.as_view(), name='update'),
 	path('delete/<int:pk>/', views.VoitureDelete.as_view(), name="delete"),
-	path('<int:pk>/achat/', views.VoitureAchat.as_view(), name='payement'),	
+	path('achat/', views.VoitureAchat.as_view(), name='payement'),	
 ]

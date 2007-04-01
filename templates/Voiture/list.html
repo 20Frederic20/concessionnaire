@@ -13,6 +13,14 @@
             <div class="row fs-3 fw-bolder">
                 <p class="text-center">Choississez votre perle rare dans chez nous</p>
             </div>
+            {% if perms.voiture.add_voiture %}
+            <div class="row fs-3 fw-bolder">
+                <p class="text-center">
+                    <a href=" {% url 'voiture:add' %} " class="text-decoration-none">Ajouter une voiture</a>
+                </p>
+                a la collection deja disponible
+            </div>
+            {% endif %}
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4">
                 {% for voiture in voitures %}
                 <div class=" mb-3 col d-flex ">
