@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'voiture',
+    'utilisateurs',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
 ]
 
 ROOT_URLCONF = 'concessionnaire.urls'
@@ -69,6 +78,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'concessionnaire.wsgi.application'
+LOGIN_REDIRECT_URL = 'voiture:list'
+LOGIN_URL = 'utilisateurs:login'
+LOGOUT_URL = 'utilisateurs:logout'
 
 
 # Database
@@ -99,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
