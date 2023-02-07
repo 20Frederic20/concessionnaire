@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALPHA_ONE | {% block title %}{% endblock %}</title>
+	<link href="{% static "css/concessionnaire.css" %}" rel="stylesheet">
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+</head>
+<body>
+	{% include 'header.html' %}
+
+	{% block content %} {% endblock content %}
+
+	{% include 'footer.html' %}
+</body>
+</html>

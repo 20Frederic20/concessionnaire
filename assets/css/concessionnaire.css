@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/*!
+ * Copyright 2012 Insipide2.0, Inc.
+*/
+.block-center {
+    margin: 0 auto !important;
+}
+
+.sidebar {
+	position: relative;
+	top: 0;
+	right: 0;
+	width: -moz-available;
+}
+
+.sidebar-list-li {
+
+}
+
+.sidebar-list {
+	
+}

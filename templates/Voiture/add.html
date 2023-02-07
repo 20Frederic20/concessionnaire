@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="offset-3">
+		<form method="post" class="row col-md-6 px-3" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% for field in form %}
+			<div class="mb-3">
+				<label class="form-label">{{ field.label }}</label>
+				{{ field }}
+			</div>
+			{% endfor %}
+			<input type="submit" class="btn btn-primary" value="Ajouter Voiture">
+		</form>
+	</div>
+{% endblock content %}
