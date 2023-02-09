@@ -4,9 +4,16 @@
 <head>
 	<title>ALPHA_ONE | {% block title %}{% endblock %}</title>
 	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "css/bootstrap-icons.css" %}" rel="stylesheet">
 	<style>
 		.height-25r {
-			height: 25rem;
+			height: 32rem;
+		}
+
+		img {
+		    display: block;
+		    max-height: 100vh;        /* IMPORTANT à définir correctement */
+		    max-width: 100%;
 		}
 	</style>
 </head>

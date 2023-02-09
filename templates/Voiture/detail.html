@@ -2,14 +2,21 @@
 
 {% block content %}
 <div class="row mx-3">
-	<div class="offset-3 col-md-6 mb-3">
+	<div class=" col-md-3 mb-3">
+		<ul class="list-group">
+		    {% for marque in marques %}
+		    	<li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
+		    {% endfor %}
+		</ul>
+	</div> 
+	<div class=" offset-2 col-md-6 mb-3">
 		<div class="card h-100 px-2" style="width: 18rem;">
 		  <img src=" {{ voiture.image.url }} " class="card-img-top img-responsive" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">Nom : &nbsp;&nbsp; {{ voiture.marque }} {{ voiture.name }} </h5>
 		    <br> <br> <br>
 		    <h5 class="card-title">Prix : &nbsp;&nbsp;{{ voiture.price }}  </h5>
-		    <a href="" class="btn btn-primary align-items-center">Acheter</a>
+		    <a href="" class="btn btn-primary offset-4">Acheter</a>
 		  </div>
 		</div>
 	</div>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'voiture',
     'utilisateurs',
     #'debug_toolbar',
+    'marque',
 ]
 
 MIDDLEWARE = [

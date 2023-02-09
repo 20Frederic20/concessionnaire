@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<div class="">
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">ALPHA_ONE</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 						{% for marque in marques %}
 							<li>
-								<a class="dropdown-item" href="#">{{ marque.name }}</a>
+								<a class="dropdown-item" href=" {% url 'marque:detail' marque.pk %} ">{{ marque.name }}</a>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 						{% endfor %}
@@ -27,7 +28,18 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">A Propos</a>
 				</li>
-			</ul>
+			</ul>			
+		</div>
+		<div class="d-flex ">
+			{% if user.is_authenticated %}
+	            {{user.username}} &nbsp;&nbsp;
+			    <li class="list-style-none"><a href="{% url 'utilisateurs:logout' %}">Logout</a></li>
+			{% else %}
+				<li class="list-style-none"><a href="{% url 'utilisateurs:login' %}">Login/a></li>
+				<li class="list-style-none">Inconu</li>
+			{% endif %}
+		</div>
 		</div>
 	</div>
 </nav>
+</div>

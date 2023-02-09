@@ -9,7 +9,7 @@ from django.views.generic import View, ListView, DetailView, CreateView, UpdateV
 class VoitureView(ListView):
 	template_name='Voiture/index.html'
 	marques = Marque.objects.all()
-	voitures = Voiture.objects.all()[:5]
+	voitures = Voiture.objects.all()[:3]
 
 	def get(self, request):
 		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures })

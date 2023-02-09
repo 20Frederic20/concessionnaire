@@ -5,12 +5,14 @@
 	<div class="">
 		<div class="row mx-3">
 			{% for voiture in voitures %}
-				<div class="col-md-4 mb-3">
+				<div class="col-md-4 mb-3 d-flex">
 					<div class="card h-100 px-2" style="width: 18rem;">
 					  <img src=" {{ voiture.image.url }} " class="card-img-top" alt="...">
-					  <div class="card-body">
-					    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
-					    <a href=" {{ voiture.get_absolute_url }} " class="btn btn-primary">Voir plus</a>
+					  <div class="card-body d-flex flex-column">
+					  	<div class="mt-auto mx-auto">
+						    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
+						    <a href=" {% url 'voiture:detail' voiture.pk %} " class="btn btn-primary offset-3">Plus</a>
+					    </div>
 					  </div>
 					</div>
 				</div>
