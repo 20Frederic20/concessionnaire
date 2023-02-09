@@ -2,19 +2,20 @@
 
 {% block content %}
 
-	<div class="container">
-		<div class="row">
+	<div class="">
+		<div class="row mx-3">
 			{% for voiture in voitures %}
-				<div class="card" style="width: 18rem;">
-				  <img src=" {{ voiture.image.url }} " class="card-img-top" alt="...">
-				  <div class="card-body">
-				    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
-				    <a href="#" class="btn btn-primary">Voir plus</a>
-				  </div>
+				<div class="col-md-4 mb-3">
+					<div class="card h-100 px-2" style="width: 18rem;">
+					  <img src=" {{ voiture.image.url }} " class="card-img-top" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
+					    <a href=" {{ voiture.get_absolute_url }} " class="btn btn-primary">Voir plus</a>
+					  </div>
+					</div>
 				</div>
 			{% endfor %}
 		</div>
-		
 	</div>
 
 {% endblock content %}

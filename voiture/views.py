@@ -2,20 +2,36 @@ from django.shortcuts import render
 from .models import Marque, Voiture
 from .forms import VoitureForm
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView,DeleteView
+from django.views.generic import View, ListView, DetailView, CreateView, UpdateView,DeleteView
 # Create your views here.
 
 
+class VoitureView(ListView):
+	template_name='Voiture/index.html'
+	marques = Marque.objects.all()
+	voitures = Voiture.objects.all()[:5]
+
+	def get(self, request):
+		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures })
+
+
+
 class VoitureList(ListView):
-	model = Voiture
 	template_name = 'Voiture/list.html'
-	context_object_name = 'voitures'
+	marques = Marque.objects.all()
+	voitures = Voiture.objects.all()
+
+	def get(self, request):
+		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures })
 
 
 class VoitureDetail(DetailView):
-	model = Voiture
 	template_name = 'Voiture/detail.html'
-	context_object_name = 'voiture'
+	marques = Marque.objects.all()
+
+	def get(self, request, *args, **kwargs):
+		voiture = Voiture.objects.get(pk=self.kwargs['pk'])
+		return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture})
 		
 
 class VoitureAdd(CreateView):		
