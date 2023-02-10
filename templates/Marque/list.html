@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Marque{% endblock %}
+
+{% block content %}
+<div class="row mx-3">
+
+	<div class=" col-md-3 mb-3 justify-content-center">
+		<ul class="list-group">
+		    {% for marque in marques %}
+		    	<li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
+		    {% endfor %}
+		</ul>
+	</div> 
+</div>
+
+{% endblock content %}

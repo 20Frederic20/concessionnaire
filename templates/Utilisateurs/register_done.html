@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-	<h1 class="fs-3 fw-bolder">Welcome {{ new_user.first_name }}!</h1>
+	<h1 class="fs-3 fw-bolder text-center">Welcome {{ new_user.first_name }}!</h1>
 	<p>Your account has been successfully created. Now you can <a
 	href="{% url "utilisateurs:login" %}">log in</a>.</p>
 {% endblock %}

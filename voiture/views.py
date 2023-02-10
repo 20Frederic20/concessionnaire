@@ -9,21 +9,20 @@ from django.views.generic import View, ListView, DetailView, CreateView, UpdateV
 
 class VoitureView(ListView):
 	template_name='Voiture/index.html'
-	marques = Marque.objects.all()
 	voitures = Voiture.objects.all()[:3]
 
 	def get(self, request):
-		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures })
+		return render(request, self.template_name, {'voitures': self.voitures, 'nbar': 'index'})
 
 
 
 class VoitureList(ListView):
 	template_name = 'Voiture/list.html'
-	marques = Marque.objects.all()
 	voitures = Voiture.objects.all()
+	marques = Marque.objects.all()
 
 	def get(self, request):
-		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures })
+		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures, 'nbar': 'voitures' })
 
 
 class VoitureDetail(DetailView):
@@ -32,7 +31,7 @@ class VoitureDetail(DetailView):
 
 	def get(self, request, *args, **kwargs):
 		voiture = Voiture.objects.get(pk=self.kwargs['pk'])
-		return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture})
+		return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture, 'nbar': 'voitures' })
 		
 
 class VoitureAdd(CreateView):		
@@ -44,7 +43,7 @@ class VoitureAdd(CreateView):
 
 class VoitureUpdate(UpdateView):		
 	model = Voiture
-	template_name = 'Voiture/add.html'
+	template_name = 'Voiture/update.html'
 	form_class = VoitureForm
 	success_url = reverse_lazy('voiture:list')
 
@@ -55,5 +54,4 @@ class VoitureDelete(DeleteView):
 
 
 class VoitureAchat(LoginRequiredMixin, View):
-	login_url = 'utilisateurs:login'
 	template_name = 'Voiture/payement.html'

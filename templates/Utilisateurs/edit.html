@@ -3,14 +3,14 @@
 {% block title %}Edit your account{% endblock %}
 
 {% block content %}
-	<h1 class="fs-3 fw-bolder">Edit your account</h1>
-	<p>You can edit your account using the following form:</p>
-	<div class="offset-3">
+	<h1 class="fs-3 fw-bolder text-center">Edit your account</h1>
+	<p class="text-center">You can edit your account using the following form:</p>
+	<div class="offset-4">
 		<form method="post" class="row col-md-6 px-3" enctype="multipart/form-data">
 		{{ user_form.as_p }}
 		{{ profile_form.as_p }}
 		{% csrf_token %}
-		<input class="btn btn-primary" type="submit" value="Save changes">
+		<input class="btn btn-primary col-md-8 offset-2" type="submit" value="Save changes">
 		</form>
 	</div>
 {% endblock %}

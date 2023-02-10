@@ -79,7 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'concessionnaire.wsgi.application'
-LOGIN_REDIRECT_URL = 'voiture:list'
+LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'utilisateurs:login'
 LOGOUT_URL = 'utilisateurs:logout'
 

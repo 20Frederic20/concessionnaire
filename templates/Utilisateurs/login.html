@@ -3,20 +3,21 @@
 {% block title %}Se connecter{% endblock %}
 
 {% block content %}
-	<h1 class="fs-3 fw-bolder">Se connecter</h1>
-	<p class="fs-5">Veuillez utiliser le formulaire ci-dessous pour vous connecter</p>
+	<h1 class="fs-3 fw-bolder text-center">Se connecter</h1>
+	<p class="fs-5 offset-2">Veuillez utiliser le formulaire ci-dessous pour vous connecter</p>
 	<div class="offset-3">
 		<form method="post" class="row col-md-6 px-3" enctype="multipart/form-data">
-			{% for field in form %}
 				<div class="mb-3">
-					{{ field.errors }}
-					<label class="form-label">{{ field.label }}</label>
-					{{ field }}
+					<label class="form-label">Username :</label>
+					<input class="form-control" type="text" id="username" name="username" placeholder="Username">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Password :</label>
+					<input class="form-control" type="password" id="password" name="password" placeholder="Password">
 				</div>					
-			{% endfor %}
 			{% csrf_token %}
-			<input class="btn btn-primary" type="submit" value="Log in">
-			<p class="form-text">Vous n'aviez pas encore de compte ? Cliquer ici pour <a class="text-decoration-none" href="{% url "utilisateurs:login" %}">vous inscrire</a></p>
+			<input class="btn btn-primary col-6 offset-3" type="submit" value="Log in">
+			<p class="form-text">Vous n'aviez pas encore de compte ? Cliquer ici pour <a class="text-decoration-none" href="{% url "utilisateurs:register" %}">vous inscrire</a></p>
 		</form>
 	</div>
 {% endblock %}

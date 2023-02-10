@@ -3,47 +3,52 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-	<h1 class="fs-3 fw-bolder">Dashboard</h1>
-	<p>Welcome to your dashboard.</p>
+	<h1 class="fs-3 fw-bolder text-center">Dashboard</h1>
+	<p class="text-center">Bienvenue sur votre profile.</p>
 	<div>
-		<form method="post" class="row col-md-9 px-3" enctype="multipart/form-data">
+		<form method="post" class=" offset-3 row col-md-9 px-3" enctype="multipart/form-data">
+			<div class="row mb-3">
+				<div class="offset-2 col-md-5" style="height: 14rem">
+					<img class="img-responsive" src="{{ profile.photo.url }}">
+				</div>
+			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
 					<label class="form-label">First name:</label>
-					<input class="form-control" type="text" value="{{ user.first_name }}">
+					<input class="form-control" type="text" value="{{ user.first_name }}" disabled>
 				</div>
 				<div class="col-md-4">
 					<label class="form-label">Last name:</label>
-					<input class="form-control" type="text" value="{{ user.last_name }}">
+					<input class="form-control" type="text" value="{{ user.last_name }}" disabled>
 				</div>
 			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
 					<label class="form-label">Email :</label>
-					<input class="form-control" type="email" value="{{ user.email }}">
+					<input class="form-control" type="email" value="{{ user.email }}" disabled>
 				</div>
 				<div class="col-md-4">
 					<label class="form-label">Date of Birth:</label>
-					<input class="form-control" type="date" value="{{ profile.date_of_birth }}">
+					<input class="form-control" type="text" value="{{ profile.date_of_birth|date:"m-d-Y" }}" disabled>
 				</div>
 			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
 					<label class="form-label">Username :</label>
-					<input class="form-control" type="text" value="{{ user.username }}">
+					<input class="form-control" type="text" value="{{ user.username }}" disabled>
 				</div>
 				<div class="col-md-4">
 					<label class="form-label">Password :</label>
-					<input class="form-control" type="date" value="{{ user.password }}">
+					<input class="form-control" type="password" value="" disabled>
 				</div>
 			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
-					<button class="btn btn-success" type="button"><a href="{% url "utilisateurs:edit" %}">Editer</a>
+					<button class="btn btn-success offset-4" type="button"><a class="text-decoration-none text-white" href="{% url "utilisateurs:edit" %}">Editer</a>
 					</button>
 				</div>
 				<div class="col-md-4">
-					<button class="btn btn-danger" type="button"><a href="{% url "utilisateurs:password_change" %}">Changer son mot de passe</a>
+					<button class="btn btn-danger offset-2" type="button"><a class="text-decoration-none text-white" href="{% url "utilisateurs:password_change" %}">Change password</a>
 					</button>
 				</div>
 			</div>

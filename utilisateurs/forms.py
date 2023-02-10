@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
+class DateInput(forms.DateInput):
+	input_type='date'
+
+
 class UserEditForm(forms.ModelForm):
 	class Meta:
 		model = User
@@ -36,8 +40,9 @@ class ProfileEditForm(forms.ModelForm):
 		    		'class': 'form-control',
 		    	}
 		    ),
-		    'name': forms.DateInput(attrs={
-		        'class': 'form-control',
+		    'date_of_birth': DateInput(
+		    	attrs={
+		        	'class': 'form-control',
 		    }),
 		}
 

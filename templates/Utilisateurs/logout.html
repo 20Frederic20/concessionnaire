@@ -3,9 +3,11 @@
 {% block title %}Logged out{% endblock %}
 
 {% block content %}
-	<h1 class="fs-3 fw-bolder">Logged out</h1>
-	<p>
-		You have been successfully logged out.
-		You can <a href="{% url "utilisateurs:login" %}">log-in again</a>.
-	</p>
+	<div class="mx-4">
+		<h1 class="fs-3 fw-bolder text-center">Déconnexion</h1>
+		<p class="offset-2">
+			Vous avez été déconnecté avec succès.
+			Redirigez vous vers cette page pour <a class="text-decoration-none" href="{% url "utilisateurs:login" %}">vous connecter</a>.
+		</p>
+	</div>
 {% endblock %}

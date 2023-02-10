@@ -13,4 +13,5 @@ urlpatterns = [
 	path('add/', views.VoitureAdd.as_view(), name='add'),
 	path('update/<int:pk>/', views.VoitureUpdate.as_view(), name='update'),
 	path('delete/<int:pk>/', views.VoitureDelete.as_view(), name="delete"),
+	path('<int:pk>/achat/', views.VoitureAchat.as_view(), name='payement'),	
 ]

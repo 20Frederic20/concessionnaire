@@ -12,3 +12,9 @@ class MarqueDetail(DetailView):
 		voitures = Voiture.objects.filter(marque=self.kwargs['pk'])
 		marque_voiture = Marque.objects.get(pk=self.kwargs['pk'])
 		return render(request, self.template_name, {'marques': self.marques, 'voitures': voitures, 'marque_voiture': marque_voiture})
+
+
+class MarqueList(ListView):
+	model = Marque
+	template_name = 'Marque/list.html'
+	context_objects_name = 'marques'
