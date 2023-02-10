@@ -7,7 +7,7 @@ app_name = 'voiture'
 
 urlpatterns = [
 	# post views
-	path('', views.VoitureView.as_view(), name='index'),
+	#path('', views.VoitureView.as_view(), name='index'),
 	path('<int:pk>/', views.VoitureDetail.as_view(), name='detail'),
 	path('list/', views.VoitureList.as_view(), name='list'),
 	path('add/', views.VoitureAdd.as_view(), name='add'),

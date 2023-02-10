@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from voiture import views as voiture_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', voiture_views.VoitureView.as_view(), name='index'),
     path('voiture/', include('voiture.urls', namespace='voiture')),
     path('marque/', include('marque.urls', namespace='marque')),
     #path('__debug__/', include('debug_toolbar.urls')),

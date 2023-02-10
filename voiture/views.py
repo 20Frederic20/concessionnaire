@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Marque, Voiture
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import VoitureForm
 from django.urls import reverse_lazy
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView,DeleteView
@@ -51,3 +52,8 @@ class VoitureUpdate(UpdateView):
 class VoitureDelete(DeleteView):		
 	model = Voiture
 	success_url = reverse_lazy('voiture:list')
+
+
+class VoitureAchat(LoginRequiredMixin, View):
+	login_url = 'utilisateurs:login'
+	template_name = 'Voiture/payement.html'

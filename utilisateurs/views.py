@@ -10,7 +10,8 @@ from django.contrib.auth.models import User
 
 @login_required
 def dashboard(request):
-	return render(request,'Utilisateurs/dashboard.html', {'section': 'dashboard'})
+	profile = Profile.objects.get(user=request.user)
+	return render(request,'Utilisateurs/dashboard.html', {'profile': profile})
 
 
 @login_required

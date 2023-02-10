@@ -3,16 +3,21 @@
 {% block title %}Create an account{% endblock %}
 
 {% block content %}
-	<h1>Create an account</h1>
-	<p>Please, sign up using the following form:</p>
-	<form method="post">
-		{% for field in form %}
-				<div>
-					{{ field.errors }}
-					{{ field.label_tag }} {{ field }}
-				</div>					
-			{% endfor %}
-		{% csrf_token %}
-		<p><input type="submit" value="Create my account"></p>
-	</form>
+	<div class="mt-3 mx-3">
+		<h1 class="text-center fs-3 fw-bolder">Create an account</h1>
+		<p class="">Please, sign up using the following form:</p>
+		<div class="offset-3">
+			<form method="post" class="row col-md-6 px-3" enctype="multipart/form-data">
+				{% for field in form %}
+					<div class="mb-3">
+						{{ field.errors }}
+						<label class="form-label">{{ field.label }}</label>
+						{{ field }}
+					</div>				
+				{% endfor %}
+				<input class="btn btn-primary" type="submit" value="Create my account">
+				{% csrf_token %}
+			</form>
+		</div>
+	</div>
 {% endblock %}

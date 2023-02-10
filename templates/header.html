@@ -32,11 +32,11 @@
 		</div>
 		<div class="d-flex ">
 			{% if user.is_authenticated %}
-	            {{user.username}} &nbsp;&nbsp;
-			    <li class="list-style-none"><a href="{% url 'utilisateurs:logout' %}">Logout</a></li>
+	            <li class="list-unstyled"><i class="bi bi-person-fill"></i>{{user.username}}</li> &nbsp;&nbsp;
+			    <li class="list-unstyled"><a href="{% url 'utilisateurs:logout' %}">Logout</a></li>
 			{% else %}
-				<li class="list-style-none"><a href="{% url 'utilisateurs:login' %}">Login/a></li>
-				<li class="list-style-none">Inconu</li>
+				<li class="list-unstyled"><a href="{% url 'utilisateurs:login' %}">Login/a></li>
+				<li class="list-unstyled">Inconu</li>
 			{% endif %}
 		</div>
 		</div>

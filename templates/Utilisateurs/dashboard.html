@@ -3,6 +3,50 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-	<h1>Dashboard</h1>
+	<h1 class="fs-3 fw-bolder">Dashboard</h1>
 	<p>Welcome to your dashboard.</p>
+	<div>
+		<form method="post" class="row col-md-9 px-3" enctype="multipart/form-data">
+			<div class="row mb-3">
+				<div class="col-md-4">
+					<label class="form-label">First name:</label>
+					<input class="form-control" type="text" value="{{ user.first_name }}">
+				</div>
+				<div class="col-md-4">
+					<label class="form-label">Last name:</label>
+					<input class="form-control" type="text" value="{{ user.last_name }}">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-md-4">
+					<label class="form-label">Email :</label>
+					<input class="form-control" type="email" value="{{ user.email }}">
+				</div>
+				<div class="col-md-4">
+					<label class="form-label">Date of Birth:</label>
+					<input class="form-control" type="date" value="{{ profile.date_of_birth }}">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-md-4">
+					<label class="form-label">Username :</label>
+					<input class="form-control" type="text" value="{{ user.username }}">
+				</div>
+				<div class="col-md-4">
+					<label class="form-label">Password :</label>
+					<input class="form-control" type="date" value="{{ user.password }}">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-md-4">
+					<button class="btn btn-success" type="button"><a href="{% url "utilisateurs:edit" %}">Editer</a>
+					</button>
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-danger" type="button"><a href="{% url "utilisateurs:password_change" %}">Changer son mot de passe</a>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
 {% endblock %}

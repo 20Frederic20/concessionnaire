@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Log-in{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block content %}
-	<h1>Log-in</h1>
-	<p>Please, use the following form to log-in:</p>
-	<form method="post" action="">
-		{% for field in form %}
-			<div>
-				{{ field.errors }}
-				{{ field.label_tag }} {{ field }}
-			</div>					
-		{% endfor %}
-		{% csrf_token %}
-		<p><input type="submit" value="Log in"></p>
-	</form>
+	<h1 class="fs-3 fw-bolder">Se connecter</h1>
+	<p class="fs-5">Veuillez utiliser le formulaire ci-dessous pour vous connecter</p>
+	<div class="offset-3">
+		<form method="post" class="row col-md-6 px-3" enctype="multipart/form-data">
+			{% for field in form %}
+				<div class="mb-3">
+					{{ field.errors }}
+					<label class="form-label">{{ field.label }}</label>
+					{{ field }}
+				</div>					
+			{% endfor %}
+			{% csrf_token %}
+			<input class="btn btn-primary" type="submit" value="Log in">
+			<p class="form-text">Vous n'aviez pas encore de compte ? Cliquer ici pour <a class="text-decoration-none" href="{% url "utilisateurs:login" %}">vous inscrire</a></p>
+		</form>
+	</div>
 {% endblock %}
