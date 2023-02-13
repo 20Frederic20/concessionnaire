@@ -55,3 +55,7 @@ class VoitureDelete(DeleteView):
 
 class VoitureAchat(LoginRequiredMixin, View):
 	template_name = 'Voiture/payement.html'
+
+	def get(self, request, *args, **kwargs):
+		voiture = Voiture.objects.get(pk=self.kwargs['pk'])
+		return render(request, self.template_name, {'voiture': voiture})

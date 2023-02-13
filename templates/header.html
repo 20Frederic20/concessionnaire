@@ -1,3 +1,6 @@
+{% url 'index' as index_url %}
+{% url 'voiture:list' as voiture_url %}
+{% url 'marque:list' as marque_url %}
 <section class="">
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
 	<div class="container-fluid">
@@ -8,15 +11,15 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link {% if request.resolver_match.view_name == 'index' %}active{% endif %} " aria-current="page" href="{% url 'index' %}">Accueil</a>
+					<a class="nav-link {% if request.path == 'index_url' %} active{% else %}{% endif %} " aria-current="page" href="{% url 'index' %}">Accueil</a>
 				</li>
-				<li class="nav-item {% if request.resolver_match.view_name == 'marque:list' %}active{% endif %}">
+				<li class="nav-item {% if request.path == 'marque_url' %}active{% else %}{% endif %}">
 					<a class="nav-link" href="{% url 'marque:list' %}">Categories</a>
 				</li>
-				<li class="nav-item {% if request.resolver_match.view_name == 'voiture:list' %}active{% endif %}">
+				<li class="nav-item {% if request.path == 'voiture_url' %}active{% else %}{% endif %}">
 					<a class="nav-link" href="{% url 'voiture:list' %}">Voitures</a>
 				</li>
-				<li class="nav-item {% if nbar == 'a-propos' %}active{% endif %}">
+				<li class="nav-item {% if nbar == "a-propos" %}active{% else %}{% endif %}">
 					<a class="nav-link" href="#">A Propos</a>
 				</li>
 			</ul>			

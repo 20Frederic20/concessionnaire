@@ -1,4 +1,5 @@
 <section class="row d-flex">
+	{% if request.resolver_match.view_name == 'index' %}
 	<div class="mt-5 container">
 		<div class="container bg-secondary rounded-3 text-white pt-5">
 		    <div class="intro">
@@ -15,6 +16,9 @@
 		    </form>
 		</div>
 	</div>
+	{% else %}
+	<div></div>
+	{% endif %}
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     	<p class="col-md-4 mb-0 fs-6 fw-normal">© 10-20 TECHNOLOGIES - Tous droits réservés - 2023</p>
 
@@ -33,3 +37,18 @@
 {% load static %}
 <script src="{% static "js/bootstrap.bundle.js"%}"></script>
 <script src="{% static "js/jquery-3.6.0.min.js"%}"></script>
+<script>
+	$("#plus").click(
+		function() {
+			var value = parseInt($(".valeur").val(), 10) + 1;
+			$(".valeur").val(value);
+		}
+	)
+
+	$("#minus").click(
+		function() {
+			var value = parseInt($(".valeur").val(), 10) - 1;
+			$(".valeur").val(value);
+		}
+	)
+</script>

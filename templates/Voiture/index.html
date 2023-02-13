@@ -45,15 +45,38 @@
 		</div>
 	</div>
 
-	carousel with cards article
+	<div class="row mx-auto mt-5 bg-light bg-opacity-25">
+        <div class="col-md-3 col-sm-3 border fw-bolder">
+        	<div class="py-5 text-center"><i class="bi bi-wrench-adjustable fs-3"></i></div>
+        	<div class="pb-2 text-center">Construire & Prix</div>
+    	</div>
+    	<div class="col-md-3 col-sm-3 border fw-bolder">
+        	<div class="py-5 text-center"><i class="bi bi-shop fs-3"></i></div>
+        	<div class="pb-2 text-center">? une concession</div>
+    	</div>
+    	<div class="col-md-3 col-sm-3 border fw-bolder">
+        	<div class="py-5 text-center"><i class="bi bi-search fs-3"></i></div>
+        	<div class="pb-2 text-center">Rechercher</div>
+    	</div>
+    	<div class="col-md-3 col-sm-3 border fw-bolder">
+        	<div class="py-5 text-center"><i class="bi bi-person-badge fs-3"></i></div>
+        	<div class="pb-2 text-center">Assistance</div>
+    	</div>
+    </div>
+
+    <div class="row mt-4">
+    	<h2 class="text-center fs-2 fw-normal">Lorem ipsum dolor</h2>
+    	<p class="col-8 offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> 
+    </div>
+	
 	<div class="row">
 		{% for voiture in voitures %}
 			<div class="col-md-4">
-				<div class="card card-body h-100 p-0">
-				  	<img src=" {{ voiture.image.url }} " class="img-fluid" alt="...">
+				<div class="card card-body h-100 p-0 rounded-3">
+				  	<img src=" {{ voiture.image.url }} " class="img-fluid h-100 rounded-3" alt="...">
 				  	<div class="carousel-caption d-none d-md-block">
 					    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
-					    <a href=" {% url 'voiture:detail' voiture.pk %} " class="text-decoration-none">Voir plus</a>
+					    <a href=" {% url 'voiture:detail' voiture.pk %} " class="text-decoration-none fw-bolder">Voir plus <i class="bi bi-arrow-right-circle"></i></a>
 				    </div>
 				</div>
 			</div>
@@ -62,6 +85,5 @@
 			<a href=" {% url 'voiture:list' %} " class="btn btn-light rounded-pill fw-bolder">Explorer tous les vehicules</a>
 		</div>
 	</div>
-
 </div>
 {% endblock content %}

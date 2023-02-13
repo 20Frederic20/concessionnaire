@@ -8,21 +8,30 @@
 	<div class=" col-md-3 mb-3 justify-content-center">
 		<ul class="list-group">
 		    {% for marque in marques %}
-		    	<li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
+		    	{% if marque_voiture == marque %}
+		    		<li class="list-group-item active shadow"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none text-light">{{ marque.name }} </a> </li>
+		    	{% else %}
+		    		<li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
+		    	{% endif %}
 		    {% endfor %}
 		</ul>
 	</div> 
 	<div class="col-md-9 mb-3">
-		<div class="row text-center fw-bolder fs-1"> {{ marque_voiture.name }} </div>
+		<div class="row mb-3 mx-1 shadow">
+			<div class="offset-4 fs-1 pt-2"> 
+				{{ marque_voiture.name }}
+			</div>
+			<hr class="offset-3 border-2 text-primary col-6 rounded-pill" style="height: 3px;">
+		</div>
 		<div class="row">
 		{% for voiture in voitures %}
 			<div class="col-md-4 mb-3 d-flex">
-				<div class="card h-100 px-2">
+				<div class="card h-100 px-2 h-75 pt-1">
 				  <img src=" {{ voiture.image.url }} " class="card-img-top" alt="...">
 				  <div class="card-body d-flex flex-column">
 				  	<div class="mt-auto mx-auto">
-					    <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
-					    <a href=" {% url 'voiture:detail' voiture.pk %} " class="btn btn-primary offset-3">Plus</a>
+					    <h5 class="fs-6"> {{ voiture.marque }} {{ voiture.name }} </h5>
+					    <a href=" {% url 'voiture:detail' voiture.pk %} " class="btn btn-primary offset-3">Plus <i class="bi bi-arrow-right-circle text-light"></i></a>
 				    </div>
 				  </div>
 				</div>
