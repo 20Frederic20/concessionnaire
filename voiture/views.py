@@ -22,7 +22,7 @@ class VoitureList(ListView):
 	marques = Marque.objects.all()
 
 	def get(self, request):
-		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures, 'nbar': 'voitures' })
+		return render(request, self.template_name, {'marques': self.marques, 'voitures': self.voitures})
 
 
 class VoitureDetail(DetailView):
