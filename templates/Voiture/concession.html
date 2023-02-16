@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block title %}Recherche{% endblock %} {% block content %}
+<div class="row">
+    <form method="get" class="offset-md-2 col-md-8 border" enctype="multipart/form-data">
+        <div class="row form-group mb-3">
+            <h3 class="fs-5 text-center">Rechercher une coincession</h3>
+        </div>
+        {% csrf_token %}
+        <div class="row form-group d-flex justify-content-between mx-2 mb-3">
+            <input type="search" class="form--control col-6" name="rechercher" placeholder="Entrez votre localite">
+            <input type="submit" class="btn btn-primary offset-1 col-4" value="Rechercher">
+        </div>
+    </form>
+</div>
+<div class="offset-md-2 col-md-8 mt-5 px-2 resultat">
+    {% comment %}
+    {% for object in object_list %}
+       
+    {% endfor %}
+    {% endcomment %}
+</div>
+{% endblock content %}

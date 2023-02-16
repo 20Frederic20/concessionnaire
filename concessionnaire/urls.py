@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', voiture_views.VoitureView.as_view(), name='index'),
     path('assistance/', voiture_views.AssistanceView.as_view(), name='assistance'),
+    path('concession/', voiture_views.ConcessionView.as_view(), name='concession'),
     path('voiture/', include('voiture.urls', namespace='voiture')),
     path('marque/', include('marque.urls', namespace='marque')),
     #path('__debug__/', include('debug_toolbar.urls')),

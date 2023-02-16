@@ -13,24 +13,25 @@
 		            <img src="{% static "images/carousel-1.jpg"%}" class="d-block w-100" alt="...">
 
 		            <div class="carousel-caption d-none d-md-block text-wite">
-				        <h5>First slide label</h5>
-				        <p>Some representative placeholder content for the first slide.</p>
+				        <h5>Le pouvoir de la vitesse</h5>
+				        <p>Quand on ne sait pas où on va, la vitesse du déplacement ne compte plus.
+						</p>
 				    </div>
 		        </div>
 			    <div class="carousel-item height-25r">
 			        <img src="{% static "images/carousel-2.jpg"%}" class="d-block w-100" alt="...">
 
 			        <div class="carousel-caption d-none d-md-block text-wite">
-				        <h5>First slide label</h5>
-				        <p>Some representative placeholder content for the first slide.</p>
+				        <h5>Profitez de la vie avec la Lamborghini urus</h5>
+				        <p>Idéalement nous sommes ce que nous pensons. Dans la réalité, nous sommes ce que nous accomplissons.</p>
 				    </div>
 			    </div>
 			    <div class="carousel-item height-25r">
 			        <img src="{% static "images/carousel-3.jpg"%}" class="d-block w-100" alt="...">
 
 			        <div class="carousel-caption d-none d-md-block text-wite">
-				        <h5>First slide label</h5>
-				        <p>Some representative placeholder content for the first slide.</p>
+				        <h5>Le luxe, c'est la liberte</h5>
+				        <p>La vitesse est la forme d'extase dont la révolution technique a fait cadeau à l'homme.</p>
 				    </div>
 			    </div>
 		    </div>
@@ -51,8 +52,10 @@
         	<div class="pb-2 text-center">Construire & Prix</div>
     	</div>
     	<div class="col-md-3 col-sm-3 border fw-bolder">
-        	<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class="bi bi-shop fs-3 text-primary"></i></span></div>
-        	<div class="pb-2 text-center">? une concession</div>
+			<a href=" {% url 'concession' %} " class="text-decoration-none text-dark fw-bolder">
+				<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class="bi bi-shop fs-3 text-primary"></i></span></div>
+				<div class="pb-2 text-center">? une concession</div>
+			</a>
     	</div>
     	<div class="col-md-3 col-sm-3 border fw-bolder">
 			<a href=" {% url 'voiture:search' %} " class="text-decoration-none text-dark fw-bolder">

@@ -5,8 +5,8 @@ from .forms import VoitureForm
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView,DeleteView
-# Create your views here.
 
+# Create your views here.
 
 class VoitureView(ListView):
 	template_name='Voiture/index.html'
@@ -15,6 +15,31 @@ class VoitureView(ListView):
 	def get(self, request):
 		return render(request, self.template_name, {'voitures': self.voitures})
 
+
+class ConcessionView(View):
+	template_name="Voiture/concession.html"
+
+	def get(self, request):
+		return render(request, self.template_name, {})
+
+
+class VoitureSearchView(View):
+	template_name = "Voiture/search.html"
+
+	def get(self, request,*args, **kwargs):
+		query = request.GET.get("rechercher")
+		object_list = Voiture.objects.filter( Q(name__icontains=query) | Q(marque__name__icontains=query))
+		return render(request, self.template_name, {'object_list': object_list})
+	
+	def post(self, request, *args, **kwargs):
+		return render(request, self.template_name, {})
+
+
+class AssistanceView(View):
+	template_name = 'Voiture/assistance.html'
+
+	def get(self, request):
+		return render(request, self.template_name, {})
 
 
 class VoitureList(ListView):
@@ -32,7 +57,7 @@ class VoitureDetail(DetailView):
 
 	def get(self, request, *args, **kwargs):
 		voiture = Voiture.objects.get(pk=self.kwargs['pk'])
-		return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture, 'nbar': 'voitures' })
+		return render(request, self.template_name, {'marques': self.marques, 'voiture': voiture})
 		
 
 class VoitureAdd(CreateView):		
@@ -55,26 +80,9 @@ class VoitureDelete(DeleteView):
 
 
 class VoitureAchat(LoginRequiredMixin, View):
+	login_required=True
 	template_name = 'Voiture/payement.html'
 
 	def get(self, request, *args, **kwargs):
 		voiture = Voiture.objects.get(pk=self.kwargs['pk'])
 		return render(request, self.template_name, {'voiture': voiture})
-
-
-class AssistanceView(View):
-	template_name = 'Voiture/assistance.html'
-
-	def get(self, request):
-		return render(request, self.template_name, {})
-
-class VoitureSearchView(View):
-	template_name = "Voiture/search.html"
-
-	def get(self, request,*args, **kwargs):
-		query = request.GET.get("rechercher")
-		object_list = Voiture.objects.filter( Q(name__icontains=query) | Q(marque__name__icontains=query))
-		return render(request, self.template_name, {'object_list': object_list})
-	
-	def post(self, request, *args, **kwargs):
-		return render(request, self.template_name, {})
