@@ -15,7 +15,20 @@
 	<div class="offset-1 card shadow-custom border-0 col-md-9 mx-auto">
 		<div class="row justify-content-center">
 		<div class="col-6">
+			{% if voiture.marque == "Lamborghini" %}
+			<a href="" class="text-decoration-none" target="blank">
+			{% elif voiture.marque == "Aston Martin" %}
+			<a href="" class="text-decoration-none" target="blank">
+			{% eliif voiture.marque == "Rolls Royce" %}
+			<a href="" class="text-decoration-none" target="blank">
+			{% eliif voiture.marque == "Ferrari" %}
+			<a href="" class="text-decoration-none" target="blank">
+			{% eliif voiture.marque == "Mercedes" %}
+			<a href="" class="text-decoration-none" target="blank">
+			{% else %}
+			{% endif %}
 			<img src="{{ voiture.image.url }}" alt=""class="img-fluid rounded-3 h-75">
+			</a>
 		</div>
 		<div class="col-6">
 			<div class="top">

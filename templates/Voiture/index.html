@@ -47,26 +47,36 @@
 
 	<div class="row mx-auto mt-5 bg-light bg-opacity-25">
         <div class="col-md-3 col-sm-3 border fw-bolder">
-        	<div class="py-5 text-center"><i class="bi bi-wrench-adjustable fs-3"></i></div>
+        	<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class="bi bi-wrench-adjustable fs-3 text-primary"></span></i></div>
         	<div class="pb-2 text-center">Construire & Prix</div>
     	</div>
     	<div class="col-md-3 col-sm-3 border fw-bolder">
-        	<div class="py-5 text-center"><i class="bi bi-shop fs-3"></i></div>
+        	<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class="bi bi-shop fs-3 text-primary"></i></span></div>
         	<div class="pb-2 text-center">? une concession</div>
     	</div>
     	<div class="col-md-3 col-sm-3 border fw-bolder">
-        	<div class="py-5 text-center"><i class="bi bi-search fs-3"></i></div>
-        	<div class="pb-2 text-center">Rechercher</div>
+			<a href=" {% url 'voiture:search' %} " class="text-decoration-none text-dark fw-bolder">
+				<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class="bi bi-search fs-3 text-primary"></i></span></div>
+				<div class="pb-2 text-center">Rechercher</div>
+			</a>
     	</div>
     	<div class="col-md-3 col-sm-3 border fw-bolder">
-        	<div class="py-5 text-center"><i class="bi bi-person-badge fs-3"></i></div>
-        	<div class="pb-2 text-center">Assistance</div>
+			<a href=" {% url 'assistance' %} " class="text-decoration-none text-dark fw-bolder">
+				<div class="py-5 text-center"><span class="rounded-circle border border-dark p-4"><i class=" bi bi-person-badge fs-3 text-primary text-center"></i></span></div>
+				<div class="pb-2 text-center">
+					Assistance
+				</div>
+			</a>
     	</div>
     </div>
 
     <div class="row my-4">
-    	<h2 class="text-center fs-2 fw-normal">Lorem ipsum dolor</h2>
-    	<p class="col-8 offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> 
+    	<h2 class="text-center fs-2 fw-normal">LE POUVOIR D’ATTRACTION</h2>
+    	<p class="col-8 offset-2 fw-600">
+			Une allure féline qui se distingue au premier regard.&nbsp;
+			Une expérience de conduite sans cesse renouvelée.&nbsp;
+			Notre conncession ALPHA_ONE séduit année après année par le raffinement de son espace intérieur et l’élégance de ses lignes extérieures.&nbsp;
+		</p> 
     </div>
 	
 	<div class="row">

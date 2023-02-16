@@ -7,16 +7,18 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib.auth.models import User
 
-
+# Vue ddu dashboard définie sous forme de fonction
 @login_required
 def dashboard(request):
 	profile = Profile.objects.get(user=request.user)
 	return render(request,'Utilisateurs/dashboard.html', {'profile': profile})
 
 
+# Vue d'édition des informations de l'utilisateur
 @login_required
 def edit(request):
 	if request.method == 'POST':
+		#Cette partie appelle le formulaire d'edition de l'utilisateur avec pour inistance l'user actuellemnt connecté
 		user_form = UserEditForm(instance=request.user, data=request.POST)
 		profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
 		if user_form.is_valid() and profile_form.is_valid():
@@ -27,7 +29,7 @@ def edit(request):
 		profile_form = ProfileEditForm(instance=request.user.profile)
 	return render(request, 'Utilisateurs/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
-
+# Vue de creation d'utilisateur
 class RegistrationView(View):
 	form_class = UserRegistrationForm
 	template_name = 'utilisateurs/register.html'
@@ -49,6 +51,8 @@ class RegistrationView(View):
 			return redirect('utilisateurs:register_done')
 		return render(request, self.template_name, {'form': self.form_class})
 
+
+# Vue de redirection de l'utilisation une fois le compte proprement créé.
 class RegistrationDone(View):
 	template_name='utilisateurs/register_done.html'
 

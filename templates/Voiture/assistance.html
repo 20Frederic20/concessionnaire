@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block title %}Assistance{% endblock %} {% block content %}
+<div class="row">
+    <form method="post" class="offset-md-2 offset-sm-1 ps-4 row col-12 px-3 mt-5 border rounded=3 pt-3 col-sm-10 col-md-8 col-lg-8 col-xl-8" enctype="multipart/form-data">
+        <div class="row form-group mb-3">
+            <h3 class="fs-5 text-center">Contactez notre assistance pour plus d'informations</h3>
+        </div>
+        {% csrf_token %}
+        <div class="row form-group mb-3">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        </div>
+        <div class="row mb-3">
+            <div class="col row me-1">
+                <label for="first_name">Nom :</label>
+                <input type="text" class="form-control" placeholder="Doe" name="first_name" id="first_name">
+            </div>
+            <div class="col row ms-1">
+                <label for="last_name">Prenom :</label>
+                <input type="text" class="form-control" placeholder="John" name="last_name" id="last_name">
+            </div>
+        </div>
+        <div class="row form-group mb-3">
+            <label for="message">Posez votre question</label>
+            <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+        </div>
+        <div class="row form-group">
+            <input type="submit" class="btn btn-primary" value="Envoyer un message">
+            <p class="form-text py-2">Veuillez remplir le formulaire ci-dessus pour nous contacter par mail. Nous vous repondrons dans le plus bref delai possible.</p>
+        </div>
+    </form>
+</div>
+{% endblock content %}

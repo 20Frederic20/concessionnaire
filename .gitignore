@@ -1,5 +1,6 @@
 *.pyc
-media
 *.log
 
 
+concessionnaire/__pycache__/ marque/__pycache__/ utilisateurs/__pycache__/ voiture/__pycache__/
+marque/migrations utilisateurs/migrations voiture/migrations

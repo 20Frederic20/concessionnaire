@@ -1,54 +1,57 @@
+{% load static %}
 <section class="row d-flex">
-	{% if request.resolver_match.view_name == 'index' %}
-	<div class="mt-5 container">
-		<div class="container bg-secondary rounded-3 text-white pt-5">
-		    <div class="intro">
-		        <h2 class="text-center fs-2 fw-bolder">Subscribe to our Newsletter</h2>
-		        <p class="col-8 offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-		    </div>
-		    <form class="my-3 row pt-3 pb-5" method="post">
-		        <div class="col-9">
-		        	<input class="form-control" type="email" name="email" placeholder="Your Email">
-		        </div>
-		        <div class="col-3 row">
-		        	<button class="btn btn-primary" type="button">Subscribe </button>
-		        </div>
-		    </form>
+    {% if request.resolver_match.view_name == 'index' or request.resolver_match.view_name == 'assistance' %}
+    <div class="mt-5 container">
+        <div class="container bg-secondary rounded-3 text-white pt-5">
+            <div class="intro">
+                <h2 class="text-center fs-2 fw-bolder">Subscribe to our Newsletter</h2>
+                <p class="col-8 offset-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+            <form class="my-3 row pt-3 pb-5" method="post">
+                <div class="offset-2 col-6">
+                    <input class="form-control" type="email" name="email" placeholder="Your Email">
+                </div>
+                <div class=" ms-4 col-2 row">
+                    <button class="btn btn-primary" type="button">Subscribe </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div></div>
+    {% endif %}
+	{% if request.resolver_match.view_name == 'assistance' %}
+	<div class="row text-center">
+		<div class="align-content-center ms-3">
+			Vous pouvez aussi nous contacter directement par telephone ou par sms sur le <a href="" class="text-decoration-none text-dark"><i class="bi bi-telephone fw-bolder">+22957131199</i></a>. <br> 
+			Vous pouvez aussi nous joindre a travers nos reseaux sociaux.
 		</div>
+		<ul class="nav d-flex flex-row-reverse ">
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-whatsapp fw-bolder fs-3 text-success me-5"></i></a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-facebook fw-bolder fs-3 text-primary "></i></a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-instagram fw-bolder fs-3 text-danger "></i></a></li>
+			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-twitter fw-bolder fs-3 text-primary "></i></a></li>
+		</ul>
 	</div>
 	{% else %}
-	<div></div>
-	{% endif %}
+    <div></div>
+    {% endif %}
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    	<p class="col-md-4 mb-0 fs-6 fw-normal">© 10-20 TECHNOLOGIES - Tous droits réservés - 2023</p>
+        <p class="col-md-5 mb-0 fs-6 form-text">© 10-20 TECHNOLOGIES <sup>.</sup> Tous droits réservés <sup>.</sup> 2023
+        </p>
 
-    	<a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-    		ALPHA_ONE
+        <a href="{% url 'index' %}" class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    		<img src="{% static "images/logo.png"%}" class="rounded-3 img-responsive" width="60" height="60">
     	</a>
 
-    	<ul class="nav col-md-4 justify-content-end">
-	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Categories</a></li>
-	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Voitures</a></li>
-	        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">A Propos</a></li>
-    	</ul>
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Categories</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Voitures</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">A Propos</a></li>
+        </ul>
     </footer>
 </section>
-{% load static %}
 <script src="{% static "js/bootstrap.bundle.js"%}"></script>
 <script src="{% static "js/jquery-3.6.0.min.js"%}"></script>
-<script>
-	$("#plus").click(
-		function() {
-			var value = parseInt($(".valeur").val(), 10) + 1;
-			$(".valeur").val(value);
-		}
-	)
-
-	$("#minus").click(
-		function() {
-			var value = parseInt($(".valeur").val(), 10) - 1;
-			$(".valeur").val(value);
-		}
-	)
-</script>
+<script src="{% static "js/concessionnaire.js"%}"></script>

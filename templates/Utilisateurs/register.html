@@ -10,12 +10,13 @@
 			<form method="post" class="row col-md-7 px-3 shadow rounded-3" enctype="multipart/form-data">
 				{% for field in form %}
 					<div class="mb-3">
-						{{ field.errors }}
 						<label class="form-label">{{ field.label }}</label>
 						{{ field }}
+						<small id="{{ field.label }}" class="form-text text-muted invalid-feedback">lol
+						</small>
 					</div>				
 				{% endfor %}
-				<input class="btn btn-primary mb-3" type="submit" value="Create my account">
+				<input class="btn btn-primary mb-3" type="submit" value="Create my account" id="submitbtn">
 				<p class="form-text">Vous disposez déjà d'un compte ? Cliquer ici pour <a class="text-decoration-none" href="{% url "utilisateurs:login" %}">vous connecter</a></p>
 				{% csrf_token %}
 			</form>

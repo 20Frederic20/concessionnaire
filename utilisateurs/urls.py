@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 
-
+# Ceci est le nom de l'app qaund on veut appeler les diiefrents urls qu'il contient
 app_name='utilisateurs'
 
 urlpatterns = [

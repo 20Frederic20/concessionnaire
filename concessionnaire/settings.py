@@ -54,6 +54,7 @@ MIDDLEWARE = [
     #"debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
+# Cette partie est utilisé pour montrer les differentes adresses ip sur lequel votre site démarre. C'est donc sur ces adresses que s'affichera le debug_toolbar
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
@@ -62,6 +63,7 @@ INTERNAL_IPS = [
 
 ROOT_URLCONF = 'concessionnaire.urls'
 
+# Configurations des differentes dossiers du template
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -132,6 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# Configuration des fichiers statisques et des fichiers médias
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
