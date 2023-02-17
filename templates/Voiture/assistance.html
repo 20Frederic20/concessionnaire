@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %}Assistance{% endblock %} {% block content %}
 <div class="row">
-    <form method="post" class="offset-md-2 offset-sm-1 ps-4 row col-12 px-3 mt-5 border rounded=3 pt-3 col-sm-10 col-md-8 col-lg-8 col-xl-8" enctype="multipart/form-data">
+    <form method="post" class="row offset-md-2 offset-sm-1 ps-4 row col-12 px-3 mt-5 border rounded=3 pt-3 col-sm-10 col-md-8 col-lg-8 col-xl-8" enctype="multipart/form-data">
         <div class="row form-group mb-3">
             <h3 class="fs-5 text-center">Contactez notre assistance pour plus d'informations</h3>
         </div>
@@ -23,8 +23,8 @@
             <label for="message">Posez votre question</label>
             <textarea class="form-control" id="message" name="message" rows="4"></textarea>
         </div>
-        <div class="row form-group">
-            <input type="submit" class="btn btn-primary" value="Envoyer un message">
+        <div class="row form-group justify-content-center">
+            <input type="submit" class="btn btn-primary col-6 " value="Envoyer un message">
             <p class="form-text py-2">Veuillez remplir le formulaire ci-dessus pour nous contacter par mail. Nous vous repondrons dans le plus bref delai possible.</p>
         </div>
     </form>

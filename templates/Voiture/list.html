@@ -2,30 +2,32 @@
 
 <div class="">
     <div class="row mx-3">
-        <div class=" col-md-3 mb-3">
+        <div class=" col-3 mb-3">
             <ul class="list-group">
                 {% for marque in marques %}
                 <li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
                 {% endfor %}
             </ul>
         </div>
-        <div class="row col-md-9">
+        <div class="row col-9">
             <div class="row fs-3 fw-bolder">
                 <p class="text-center">Choississez votre perle rare dans chez nous</p>
             </div>
-            {% for voiture in voitures %}
-            <div class="col-md-4 mb-3 d-flex">
-                <div class="card h-100 px-2" style="width: 18rem;">
-                    <img src=" {{ voiture.image.url }} " class="card-img-top h-50" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mt-auto mx-auto">
-                            <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
-                            <a href=" {% url 'voiture:detail' voiture.pk %} " class="btn btn-primary offset-3">Plus <i class="bi bi-arrow-right"></i> </a>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4">
+                {% for voiture in voitures %}
+                <div class=" mb-3 col d-flex ">
+                    <div class="card h-100 px-2 w-100">
+                        <img src=" {{ voiture.image.url }} " class="card-img-top h-50" alt="...">
+                        <div class="card-body d-flex flex-column">
+                            <div class="mt-auto mx-auto">
+                                <h5 class="card-title"> {{ voiture.marque }} {{ voiture.name }} </h5>
+                                <a href=" {% url 'voiture:detail' voiture.pk %} " class="btn btn-primary offset-3">Plus <i class="bi bi-arrow-right"></i> </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>

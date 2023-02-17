@@ -1,34 +1,39 @@
-@charset "UTF-8";
-
-/*!
+    @charset "UTF-8";
+    /*!
  * Copyright 2012 Insipide2.0, Inc.
 */
-
-.block-center {
-    margin: 0 auto !important;
-}
-
-.sidebar {
-    position: relative;
-    top: 0;
-    right: 0;
-    width: -moz-available;
-}
-
-.height-25r {
-    height: 35%;
-}
-
-img {
-    display: block;
-    max-height: 100vh;
-    max-width: 100%;
-}
-
-.rounded-10 {
-    border-radius: 1rem !important;
-}
-
-.fw-600 {
-    font-weight: 600;
-}
+    
+    .block-center {
+        margin: 0 auto !important;
+    }
+    
+    .sidebar {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: -moz-available;
+    }
+    
+    .height-25r {
+        height: 35%;
+    }
+    
+    img {
+        display: block;
+        max-height: 100vh;
+        max-width: 100%;
+    }
+    
+    .rounded-10 {
+        border-radius: 1rem !important;
+    }
+    
+    .fw-600 {
+        font-weight: 600;
+    }
+    
+    @media (min-width: 576px) {
+        .height-xs {
+            height: 18rem;
+        }
+    }

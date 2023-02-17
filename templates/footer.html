@@ -1,18 +1,18 @@
 {% load static %}
-<section class="row d-flex">
+<section class="">
     {% if request.resolver_match.view_name == 'index' or request.resolver_match.view_name == 'assistance' %}
     <div class="mt-5 container">
         <div class="container bg-secondary rounded-3 text-white pt-5">
-            <div class="intro">
+            <div class="container-fluid">
                 <h2 class="text-center fs-2 fw-bolder">Se souscrire a la Newsletter</h2>
                 <p class="col-8 offset-2">Rejoignez-nous a travers notre newsletter pour suivre directement nos nouvelles offres sur le marche ainsi que les promotions qio vous sont offertes.</p>
             </div>
-            <form class="my-3 row pt-3 pb-5" method="post">
-                <div class="offset-2 col-6">
+            <form class="my-3 row pt-3 pb-5 justify-content-center" method="post">
+                <div class="row-cols-2 mb-3 col-lg-6 offset-lg-0 col-md-6 offset-md-0">
                     <input class="form-control" type="email" name="email" placeholder="Your Email">
                 </div>
-                <div class=" ms-4 col-2 row">
-                    <button class="btn btn-primary" type="button">Se souscrire </button>
+                <div class="row-cols-3 col-lg-3 offset-lg-1 offset-md-1 col-md-3">
+                    <button class="btn btn-primary w-100" type="button">Se souscrire </button>
                 </div>
             </form>
         </div>
@@ -20,19 +20,23 @@
     {% else %}
     <div></div>
     {% endif %}
-	{% if request.resolver_match.view_name == 'assistance' %}
-	<div class="row text-center">
-		<div class="align-content-center ms-3">
-			Vous pouvez aussi nous contacter directement par telephone ou par sms sur le <a href="" class="text-decoration-none text-dark"><i class="bi bi-telephone fw-bolder">+22957131199</i></a>. <br> 
-			Vous pouvez aussi nous joindre a travers nos reseaux sociaux.
-		</div>
-		<ul class="nav d-flex flex-row-reverse ">
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-whatsapp fw-bolder fs-3 text-success me-5"></i></a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-facebook fw-bolder fs-3 text-primary "></i></a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-instagram fw-bolder fs-3 text-danger "></i></a></li>
-			<li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-twitter fw-bolder fs-3 text-primary "></i></a></li>
-		</ul>
-	</div>
+	{% if request.resolver_match.view_name == 'index' or request.resolver_match.view_name == 'assistance' %}
+    <div class="row mt-5">
+        <div class="row col-xxl-8 col-xl-8 offset-xxl-2 offset-xl-2 text-center">
+            <div class="align-content-center ms-3">
+                Vous pouvez aussi nous contacter directement par telephone ou par sms sur le <a href="" class="text-decoration-none text-dark"><i class="bi bi-telephone fw-bolder">+22957131199</i></a>. <br> 
+                Vous pouvez aussi nous joindre a travers nos reseaux sociaux.
+            </div>
+            <ul class="nav d-flex flex-row-reverse ">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-whatsapp fw-bolder fs-3 text-success me-5"></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-facebook fw-bolder fs-3 text-primary "></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-instagram fw-bolder fs-3 text-danger "></i></a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-twitter fw-bolder fs-3 text-primary "></i></a></li>
+            </ul>
+        </div>
+        <div class="offset-xxl-2 offset-xl-2">
+        </div>
+    </div>
 	{% else %}
     <div></div>
     {% endif %}
