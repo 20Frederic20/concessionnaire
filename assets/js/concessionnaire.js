@@ -25,15 +25,15 @@ function validateUsername() {
         $("#username").addClass("is-invalid");
         $("#Username").html("Vous devez remplir cette case");
         usernameError = false;
-        return false;
     } else if (usernameValue.length < 3 || usernameValue.length > 10) {
         $("#username").addClass("is-invalid");
         $("#Username").show();
         $("#Username").html("Ce champ doit contenir entre 3 et 10 caractères");
         usernameError = false;
-        return false;
     } else {
+        usernameError = true;
         $("#Username").hide();
+        $("#username").removeClass("is-invalid").addClass("is-valid");
     }
 }
 
@@ -48,18 +48,18 @@ function validateFirst() {
     let firstNameValue = $("#first_name").val();
     if (firstNameValue.length == "") {
         $("#first_name").addClass("is-invalid");
-        let small = $("#first_name").next("small").first().focus().show()
+        $("#first_name").next("small").first().focus().show()
         $("#first_name").next("small").first().focus().html("Vous devez remplir cette case");
         firstNameError = false;
-        return false;
     } else if (firstNameValue.length < 4) {
         $("#first_name").addClass("is-invalid");
         $("#first_name").next("small").first().focus().show();
         $("#first_name").next("small").first().focus().html("Ce champ doit contenir entre 4 caractères");
         firstNameError = false;
-        return false;
     } else {
+        firstNameError = true;
         $("#first_name").next("small").first().focus().hide();
+        $("#first_name").removeClass("is-invalid").addClass("is-valid");
     }
 }
 
@@ -70,6 +70,7 @@ email.addEventListener("blur", () => {
     let s = email.value;
     if (regex.test(s)) {
         email.classList.remove("is-invalid");
+        email.classList.add("is-valid");
         emailError = true;
     } else {
         email.classList.add("is-invalid");
@@ -92,15 +93,16 @@ function validatePassword() {
         $("#Password").show();
         $("#Password").html("Vous devez remplir cette case");
         passwordError = false;
-        return false;
     } else if (passwordValue.length < 8) {
         $("#password").addClass("is-invalid");
         $("#Password").show();
         $("#Password").html("Ce champ doit contenir au moins 8 caractères");
         passwordError = false;
-        return false;
     } else {
+        passwordError = true;
+        $("#password").removeClass("is-invalid").addClass("is-valid");
         $("#Password").hide();
+
     }
 }
 
@@ -119,9 +121,11 @@ function validateConfirmPassword() {
         $("#confirm_password").next("small").first().focus().show();
         $("#confirm_password").next("small").first().focus().html("Les mots de passe ne sont pas les memes");
         confirmPasswordError = false;
-        return false;
     } else {
+        confirmPasswordError = true;
+        $("#confirm_password").removeClass("is-invalid").addClass("is-valid");
         $("#confirm_password").next("small").first().focus().hide();
+
     }
 }
 
@@ -130,6 +134,8 @@ function validateConfirmPassword() {
 $("#submitbtn").click(function() {
     validateFirst();
     validateUsername();
+    validateConfirmPassword();
+    validatePassword();
     if (firstNameError == true && usernameError == true && emailError == true && passwordError == true && confirmPasswordError == true) {
         return true;
     } else {

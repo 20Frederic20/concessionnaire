@@ -6,11 +6,13 @@
 	<h1 class="fs-3 fw-bolder text-center">Dashboard</h1>
 	<p class="text-center">Bienvenue sur votre profile.</p>
 	<div>
-		<form method="post" class=" offset-3 row col-md-9 px-3" enctype="multipart/form-data">
+		<form method="post" class="offset-md-3 row col-md-9 px-3" enctype="multipart/form-data">
 			<div class="row mb-3">
+				{% if profile.image %}
 				<div class="offset-2 col-md-5" style="height: 14rem">
 					<img class="img-responsive" src="{{ profile.photo.url }}">
 				</div>
+				{% endif %}
 			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
@@ -44,7 +46,7 @@
 			</div>
 			<div class="row mb-3">
 				<div class="col-md-4">
-					<button class="btn btn-success offset-4" type="button"><a class="text-decoration-none text-white" href="{% url "utilisateurs:edit" %}">Editer</a>
+					<button class="btn btn-success offset-4 mb-3" type="button"><a class="text-decoration-none text-white" href="{% url "utilisateurs:edit" %}">Editer</a>
 					</button>
 				</div>
 				<div class="col-md-4">

@@ -1,3 +1,5 @@
+Seuls les utilisateurs crees sur avec la formulaire ou la page du register dispose d'un profil. Pour le moment, les supersutilisateurs n'en disposent pas.
+
 Premiere navbar integre dans le header mais non responsive
 
         {% comment %} <nav class="navbar navbar-expand-md navbar-light mb-3" style="background-color: #e3f2fd;">

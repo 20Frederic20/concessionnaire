@@ -5,9 +5,9 @@
 {% block content %}
 	<div class="mt-3 mx-3">
 		<h1 class="text-center fs-3 fw-bolder">Créer son compte</h1>
-		<hr class="offset-4 border-2 text-primary col-4 rounded-pill" style="height: 3px;">
-		<div class="offset-4">
-			<form method="post" class="row col-md-7 px-3 shadow rounded-3" enctype="multipart/form-data">
+		<hr class="offset-md-4 offset-3 border-2 text-primary col-6 col-md-4  rounded-pill" style="height: 3px;">
+		<div class="offset-md-2">
+			<form method="post" class="offset-md-1 row col-md-8 col-sm-6 col px-3 shadow pt-3 mx-2 mx-md-5" enctype="multipart/form-data">
 				{% for field in form %}
 					<div class="mb-3">
 						<label class="form-label">{{ field.label }}</label>
