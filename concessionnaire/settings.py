@@ -56,9 +56,7 @@ MIDDLEWARE = [
 
 # Cette partie est utilisé pour montrer les differentes adresses ip sur lequel votre site démarre. C'est donc sur ces adresses que s'affichera le debug_toolbar
 INTERNAL_IPS = [
-    # ...
     "127.0.0.1",
-    # ...
 ]
 
 ROOT_URLCONF = 'concessionnaire.urls'
@@ -114,6 +112,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+#EMAIL settings setup
+EMAIL_USE_TLS = True  
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_PORT = 587  
+EMAIL_HOST_USER = ''  
+EMAIL_HOST_PASSWORD = ''  
 
 
 

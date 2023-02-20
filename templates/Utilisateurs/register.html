@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Create an account{% endblock %}
+{% block title %}Creer son compte{% endblock %}
 
 {% block content %}
 	<div class="mt-3 mx-3">
@@ -15,7 +15,7 @@
 						<small id="{{ field.label }}" class="form-text text-muted invalid-feedback"></small>
 					</div>				
 				{% endfor %}
-				<input class="btn btn-primary mb-3" type="submit" value="Create my account" id="submitbtn">
+				<input class="btn btn-primary mb-3 col-md-8 offset-md-2" type="submit" value="Creer son compte" id="submitbtn">
 				<p class="form-text">Vous disposez déjà d'un compte ? Cliquer ici pour <a class="text-decoration-none" href="{% url "utilisateurs:login" %}">vous connecter</a></p>
 				{% csrf_token %}
 			</form>

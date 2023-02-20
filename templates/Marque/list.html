@@ -3,15 +3,20 @@
 {% block title %}Marque{% endblock %}
 
 {% block content %}
-<div class="row mx-3">
-
-	<div class=" col-md-3 mb-3 justify-content-center">
-		<ul class="list-group">
-		    {% for marque in marques %}
-		    	<li class="list-group-item"> <a href=" {% url 'marque:detail' marque.pk %} " class="text-decoration-none">{{ marque.name }} </a> </li>
-		    {% endfor %}
-		</ul>
-	</div> 
+<div class="row mx-3 mt-5">
+	<div class="row">
+		{% for marque in marques %}
+			<div class="col-sm-6 mb-3">
+			<div class="card">
+				<div class="card-body">
+				<h5 class="card-title text-center">{{ marque.name }}</h5>
+				<p class="card-text"></p>
+				<a href="{% url 'marque:detail' marque.pk %}" class="btn btn-primary offset-4 offset-xxl-5 offset-xl-4">Voir Plus</a>
+				</div>
+			</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
 
 {% endblock content %}
